@@ -7,7 +7,6 @@
 <!-- Custom badges with better design and layout -->
 <div align="center">
   <img src="https://img.shields.io/badge/PYTHON-3.8+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.8+" />
-  <img src="https://img.shields.io/badge/LICENSE-MIT-yellow?style=flat-square&logo=license&logoColor=white" alt="MIT License" />
   <img src="https://img.shields.io/badge/VERSION-1.0.0-blue?style=flat-square&logo=semver&logoColor=white" alt="Version 1.0.0" />
   <img src="https://img.shields.io/badge/STATUS-ACTIVE-success?style=flat-square&logo=statuspage&logoColor=white" alt="Status: Active" />
   <img src="https://img.shields.io/badge/MAINTAINED-YES-brightgreen?style=flat-square&logo=github&logoColor=white" alt="Maintained: Yes" />
