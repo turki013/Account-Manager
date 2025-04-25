@@ -24,12 +24,20 @@ class Account:
         if self.username is None or self.password is None:
             print("Your account is not found")
         else:
+            
+         attempts = 4
+         while attempts > 0:
+            
             username_login = input("Enter Username: ")
             password_login = input("Enter Password: ")
             if username_login == self.username and password_login == self.password:
-                print(f"Login successfully! \nWelcome back {self.username}!")
+                print(f"Login successfully \nWelcome back {self.username}!")
+                break
             else:
-                print("Incorrect username or password")
+                attempts -=1
+                print(f"Incorrect username or password. Attemots left : {attempts}")
+         else:
+             print("Too many failed attempts. Try again later")       
 
     def delete(self):
         confirm = input("Are you sure you want to delete your account? (yes/no): ").lower()
@@ -52,15 +60,15 @@ def main():
         print("2. Login Account")
         print("3. Delete Account")
         print("4. Exit")
-        chose = input("Enter the number: ")
+        user_choice = input("Enter the number: ")
 
-        if chose == "1":
+        if user_choice == "1":
             user.create()
-        elif chose == "2":
+        elif user_choice == "2":
             user.login()
-        elif chose == "3":
+        elif user_choice == "3":
             user.delete()
-        elif chose == "4":
+        elif user_choice == "4":
             print("Exiting the app, goodbye!")
             break
         else:
