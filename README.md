@@ -14,13 +14,20 @@
   <img src="https://img.shields.io/badge/SECURITY-LOGIN_PROTECTION-orange?style=flat-square&logo=shieldsdotio&logoColor=white" alt="Security: Login Protection" />
   <img src="https://img.shields.io/badge/CODE_STYLE-PEP8-informational?style=flat-square&logo=python&logoColor=white" alt="Code Style: PEP8" />
   <img src="https://img.shields.io/badge/TESTS-PASSING-brightgreen?style=flat-square&logo=pytest&logoColor=white" alt="Tests: Passing" />
+   <img src="https://img.shields.io/github/stars/turki013/Account-Manger?style=social" />
+  <img src="https://img.shields.io/github/forks/turki013/Account-Manger?style=social" />
+  <img src="https://img.shields.io/github/issues/turki013/Account-Manger" />
+  <img src="https://img.shields.io/github/issues-pr/turki013/Account-Manger" />
+  <img src="https://img.shields.io/github/last-commit/turki013/Account-Manger" />
+  <img src="https://img.shields.io/github/repo-size/turki013/Account-Manger" />
+  <img src="https://img.shields.io/github/license/turki013/Account-Manger" />
 </div>
 
 
 
 
 
-
+## introduction
 A simple yet powerful account management system built with Python. This project provides essential account management functionality including account creation, login authentication with attempt limiting, and account deletion.
 
 
@@ -90,13 +97,7 @@ Contributions are welcome! Feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Stats
 
-<div align="center">
-  <img src="https://img.shields.io/github/stars/turki013/Account-Manger?style=social" alt="GitHub stars" />
-  <img src="https://img.shields.io/github/forks/turki013/Account-Manger?style=social" alt="GitHub forks" />
-  <img src="https://img.shields.io/github/issues/turki013/Account-Manger?style=flat-square&color=blue" alt="GitHub issues" />
-</div>
 
 ## Contact
 
