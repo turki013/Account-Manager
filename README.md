@@ -7,7 +7,7 @@
 <!-- Custom badges with better design and layout -->
 <div align="center">
   <img src="https://img.shields.io/badge/PYTHON-3.8+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.8+" />
- <img src="https://img.shields.io/github/v/release/turki013/Portfolio-web?label=VERSION&style=flat-square&logo=semver&logoColor=white&color=blue" alt="Version" />
+ <img src="https://img.shields.io/github/v/release/turki013/Account-Manager?label=VERSION&style=flat-square&logo=semver&logoColor=white&color=blue" alt="Version" />
   <img src="https://img.shields.io/badge/STATUS-ACTIVE-success?style=flat-square&logo=statuspage&logoColor=white" alt="Status: Active" />
   <img src="https://img.shields.io/badge/MAINTAINED-YES-brightgreen?style=flat-square&logo=github&logoColor=white" alt="Maintained: Yes" />
   <img src="https://img.shields.io/badge/SECURITY-LOGIN_PROTECTION-orange?style=flat-square&logo=shieldsdotio&logoColor=white" alt="Security: Login Protection" />
