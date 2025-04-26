@@ -54,12 +54,15 @@ python src/main.py
 ## Usage
 
 ![output](pics/output.png)
+
 After running the application, you'll be presented with a menu offering the following options:
 
 1. **Create Account**: Set up a new user account with username and password
 2. **Login Account**: Access your account with proper credentials
 3. **Delete Account**: Remove your account from the system
-4. **Exit**: Close the application
+4. **ٌReset**: Reset passwords
+5. forget passwort : Recover password after forgetting it
+6. Exit : Exit the app
 
 ### Creating an Account
 
