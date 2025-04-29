@@ -1,3 +1,4 @@
+import json 
 import time
 import datetime as dt
 
@@ -8,6 +9,14 @@ class Account:
         self.password = None
         self.confirm_password = None
         
+    def load_data (self):
+        with open("src/accounts.json" , 'r') as file:
+            return json.load(file)
+        
+    def save_data(self, data):
+        with open("src/accounts.json" , 'w') as file:
+            json.dump(data , file , indent=4)  
+                  
     def get_data(self): 
         username = input("Enter Username :")
         password = input("Enter Password:")
@@ -15,57 +24,77 @@ class Account:
        
     def create(self):
         print("== Creating Account ==")
+        account = Account()
+        data = account.load_data()
         self.username , self.password =  self.get_data()
-        self.confirm_password = input("Confirm Password: ")
-
         if self.username.strip() == "" or self.password.strip() == "":
             print("You must enter valid info")
-        else:
-            if self.password == self.confirm_password:
-                print(f"The account has been created successfully!! Your user is: {self.username}")
-                time.sleep(1)
-            else:
-                print("Password does not match")
+                
+        if self.username in data:
+            print("Username was teken try another one")
+            return
+        
+        if self.password != self.confirm_password:
+            print("Password does not match")
+            return
+    
+        self.confirm_password = input("Confirm Password: ")
+        data[self.username] = {'password' : self.password}
+        account.save_data(data)
+  
+        
 
     def login(self):
+        account = Account()
+        data = account.load_data()
+
         print("== Login Account ==")
-        if self.username is None or self.password is None:
-            print("Your account is not found")
-            time.sleep(1)
-        else:  
-          attempts = 4
-          while attempts > 0: 
+        
+        attempts = 4
+        while attempts > 0: 
             username_login, password_login = self.get_data()
-            if username_login == self.username and password_login == self.password:
-                current_time = dt.datetime.now().strftime("%d-%m-%Y %I:%M %p")
-                print(f"Welcome back {self.username}!\nLogin successful at {current_time}")
-                time.sleep(2)
-                break
+            if username_login in data and data[username_login]['password'] == password_login:
+              current_time = dt.datetime.now().strftime("%d-%m-%Y %I:%M %p")
+              print(f"Welcome back {username_login}!\nLogin successful at {current_time}")
+              time.sleep(2)
+              break
             else:
-                attempts -=1
-                print(f"Incorrect username or password. attempts left : {attempts}")
-          else:
-              print("You have exceeded the allowed attempts.\nReturning to main menu...")
-              time.sleep(1)       
+               attempts -= 1
+               print(f"Incorrect username or password. Attempts left: {attempts}")
+        else:
+         print("You have exceeded  the allowed attempts.\nReturning to main menu...")
+         time.sleep(1)       
 
     def delete(self):
+        account = Account()
+        data = account.load_data()
         confirm = input("Are you sure you want to delete your account? (yes/no): ").strip().lower()
-        if confirm.strip() == "yes":
-            self.username = None
-            self.password = None
+        if confirm == "yes":
+          if self.username in data:
+            del data[self.username]
+            account.save_data(data)
             print("Account deleted successfully")
             time.sleep(1)
+            self.username = None
+            self.password = None
+          else:
+            print("Account not found.")
         else:
-            print("Account deletion canceled")
+         print("Account deletion canceled")
             
             
     def reset_passowrd(self):
+        account = Account()
+        data = account.load_data()
         print("Reset Password....")
         attempts = 4
         while attempts > 0: 
            username, password = self.get_data()
            if username == self.username and password == self.password:
-              self.password = input("Enter new password :")
+              new_password = input("Enter new password: ")
+              data[self.username]['password'] = new_password
+              account.save_data(data)
+              self.password = new_password
               print("Password changed successfully")
               time.sleep(1)
               break
@@ -73,37 +102,38 @@ class Account:
             attempts -= 1
             print(f"Incorrect username or password. Attempts left: {attempts}")
         else:
-          print("You have exceeded the allowed attempts.\nReturning to main menu..")
+          print("You have exceeded the allowed attempts.\nReturning to main menu...")
+ 
     
     def forget(self):
         print("Forget password")
-        attmpts = 4
-        while attmpts >0:
-            username = input("Enter your username to return your account :")
-            if username == self.username:
-                self.password = input("New password :")
-                self.confirm_password = input("Confirm password :")
-                if self.password == self.confirm_password:
-                    print("password changed successfully...")
-                    time.sleep(1)
-                    break
-                else:
-                    attmpts -=1
-                    print(f"Password and confirm password do not match.. Attmpts left : {attmpts}")
-            else:
-                attmpts -=1
-                print(f"couldn’t find username. try again! attmpts left : {attmpts}")
-                time.sleep(1)
+        account = Account()
+        data = account.load_data()
+        attempts = 4
+        while attempts > 0:
+          username = input("Enter your username to recover your account: ")
+          if username == self.username:
+              new_password = input("New password: ")
+              confirm_password = input("Confirm password: ")
+              if new_password == confirm_password:
+                  data[self.username]['password'] = new_password
+                  account.save_data(data)
+                  self.password = new_password
+                  print("Password changed successfully...")
+                  time.sleep(1)
+                  break
+              else:
+                attempts -= 1
+                print(f"Password and confirm password do not match. Attempts left: {attempts}")
+          else:
+              attempts -= 1
+              print(f"Couldn't find username. Try again! Attempts left: {attempts}")
+              time.sleep(1)
         else:
-            print("You have exceeded the allowed attempts.\nReturning to main menu..")                    
+          print("You have exceeded the allowed attempts.\nReturning to main menu...")                    
                     
                 
                     
-            
-                
-
-
-
 def main():
     print("=== Welcome to Account Manager! ===")
     user = Account()
