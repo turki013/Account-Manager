@@ -33,14 +33,14 @@ class Account:
        
     def create(self):
         """Create a new account and save it"""
-        
+        data = self.load_data()
         print("== Creating Account ==")
         
         self.username , self.password =  self.get_data()
         if self.username.strip() == "" or self.password.strip() == "":
             print("You must enter valid info")
                 
-        if self.username in self.data:
+        if self.username in data:
             print("Username was teken try another one")
             return
         self.confirm_password = input("Confirm Password: ")
@@ -49,8 +49,8 @@ class Account:
             print("Password does not match")
             return self.confirm_password()
             
-        self.data[self.username] = {'password' : self.password}
-        self.save_data(self.data)
+        data[self.username] = {'password' : self.password}
+        self.save_data(data)
         print("Thank you for registering. Your account has been successfully created. You may now log in and access your dashboard.")
         time.sleep(1)
   
