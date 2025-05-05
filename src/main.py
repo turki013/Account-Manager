@@ -120,6 +120,7 @@ class Account:
           print("You have exceeded the allowed attempts.\nReturning to main menu...")
  
     
+    
     def forget(self):
         """Recover account by setting new password after confirming username"""
         print("Forget password")

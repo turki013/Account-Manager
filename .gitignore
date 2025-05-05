@@ -49,6 +49,7 @@ coverage.xml
 *.cover
 .hypothesis/
 
+
 # MyPy
 .mypy_cache/
 .dmypy.json
