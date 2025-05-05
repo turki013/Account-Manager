@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Mac / Windows system files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Python environments and cache
+*.egg-info/
+.eggs/
+.cache/
+.pip-wheel-metadata/
+
+# Local database or secret files
+src/accounts.json
+
+# Testing files / temp
+*.bak
+*.tmp
+
+# Git backup files
+*.swp
+*~
+
+# Coverage / test results
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Pylint
+pylint-report.txt
+
+# Bandit security tool
+bandit.json
